@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/rgb.h>
 
 // Uncomment this block if using RGB
 &led_strip {
@@ -66,8 +68,8 @@
             bindings = <
 &trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
 &kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
+&kp RGB_EFR	    &kp RGB_EFF &kp RGB_SAD &kp RGB_SAI  &kp RGB_HUD  &kp RGB_HUI                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
+&kp RGB_BRD    &kp RGB_BRI &kp RGB_TOG &kp BL_DEC &kp BL_INC &kp BL_TOG   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
                  &trans &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans    &trans
             >;
 
