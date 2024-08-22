@@ -94,16 +94,20 @@
         adjust_layer {
 // reference: https://zmk.dev/docs/keymaps/conditional-layers
 // ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      | slep |                   |      |       |       |      |       |       |
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+// |       |     |     | vol- | mute | vol+ |                   |      |       |       |      |       |       |
+// |       |     |     | prev | paus | next |        |  |       |      |       |       |      |       |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-&kp GRAVE &kp A &kp A &kp A  &kp A  &kp A                       &kp A      &kp A    &kp A    &kp A   &kp A    &trans
-&bl BL_CYCLE    &bl BL_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF	  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI	                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&rgb_ug RGB_SAD	 &rgb_ug RGB_SAI &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_OFF &rgb_ug RGB_ON &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
+&trans &trans &trans &trans &trans &kp C_SLEEP                  &trans &trans &trans &trans &trans &trans
+
+&trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans
+
+&trans &trans &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP       &trans &trans &trans &trans &trans &trans
+
+&trans &trans &trans &kp C_PREV &kp C_PP &kp C_NEXT             &trans &trans &trans &trans &trans  &trans
+
                  &trans &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans    &trans
             >;
 
