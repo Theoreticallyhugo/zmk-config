@@ -23,6 +23,13 @@
         compatible = "zmk,keymap";
 
         default_layer {
+
+// this is the main layer with a pretty basic layout
+// THUMBS are supposed to use exactly two keys each. homing are the layer keys and next to them is lctl and spc
+// backspace and enter are on layer two, where enter replaces space on the thumb, and backspace is under the pinky
+// however, i do need command (LGUI) a lot for macos, so its close by
+// THE THUMB ENTER AND BACKSPACE ARE ONLY PROVIDED FOR WHEN THEY ARE NEEDED OUTSIDE OF TEN FINGER TYPING
+// LIKE WHEN ONLY ONE HAND IS FREE
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
@@ -30,11 +37,11 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //               |CTRL | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   | RALT |
             bindings = <
-&kp ESC   &kp N1 &kp N2    &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W     &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O    &kp P    &kp MINUS
-&kp LCTRL &kp A  &kp S     &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X     &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                 &kp LCTRL &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI  &kp RALT
+&kp GRAVE   &kp N1 &kp N2    &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp KP_MINUS
+&kp TAB   &kp Q  &kp W     &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O    &kp P    &kp LBRC
+&kp ESC &kp A  &kp S     &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X     &kp C    &kp V    &kp B  &kp C_MUTE   &trans &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+                 &kp LALT &kp RET &kp LCTRL &mo 1  &kp LGUI  &kp LALT  &kp SPC  &mo 2 &kp BSPC  &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
