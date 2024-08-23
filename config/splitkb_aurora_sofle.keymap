@@ -71,7 +71,7 @@
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                       &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
 &kp RBRC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                    &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
 &kp LS(RBRC) &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4) &kp LS(N5)                    &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-&trans     &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE
+&kp NUBS &kp LS(NUBS) &kp EQUAL &kp LS(EQUAL) &kp LS(LA(N7)) &kp LA(N5) &trans        &trans &kp LA(N6) &kp LA(N7) &kp LA(N8) &kp LA(N9) &kp LS(NUHS) &kp NUHS
                             &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
             >;
 
