@@ -41,7 +41,7 @@
 // |   ^   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Z   |  U    |  I    |  O   |   P   |   ü   |
 // |  ESC  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ö   |   ä   |
-// | SHIFT |  Y  |  X  |  C   |  V   |  B   |   MUTE |  |       |  N   |  M    |  ,    |  .   |   -   | SHIFT |
+// | SHIFT |  Y  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   -   | SHIFT |
 //               |LALT | ENTER| LALT | L2   |  LGUI  |  | RALT  | SPACE|  L1   | BSPC  | RALT |
             bindings = <
 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
@@ -109,11 +109,11 @@
         adjust_layer {
 // reference: https://zmk.dev/docs/keymaps/conditional-layers
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      | slep |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     | vol- | mute | vol+ |                   |      |       |       |      |       |       |
-// |       |     |     | prev | paus | next |        |  |       |      |       |       |      |       |       |
-//               |     |      |      |      |        |  |       |      |       |       |      |
+// | game  |      |      |      |      | slep |                   |      |       |       |      |       |       |
+// |       |      |      |      |      |      |                   |      |       |       |      |       |       |
+// | prev  | play | next | vol- | mute | vol+ |                   |      |       |       |      |       |       |
+// |       |      |      |      |      |      |        |  |       |      |       |       |      |       |       |
+//                |      |      |      |      |        |  |       |      |       |       |      |
             bindings = <
 &tog 4 &trans &trans &trans &trans &kp C_SLEEP                                                                 &trans &trans &trans &trans &trans &trans
 &bl BL_CYCLE &bl BL_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF	&rgb_ug RGB_BRD &rgb_ug RGB_BRI                        &trans &trans &trans &trans &trans &trans
@@ -127,17 +127,17 @@
         gayming_layer {
 // reference: https://zmk.dev/docs/keymaps/conditional-layers
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      | slep |                   |      |       |       |      |       |       |
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     | vol- | mute | vol+ |                   |      |       |       |      |       |       |
-// |       |     |     | prev | paus | next |        |  |       |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
-&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
+&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
 &kp TAB &kp Q &kp W &kp E &kp R &kp T                                   &kp Y &kp U &kp I &kp O &kp P &kp LBRC
-&kp ESC &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+&kp LCTRL &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                 &kp LALT &kp RET &kp LCTRL &kp SPC &kp LGUI     &kp LALT &kp SPC &kp RET &kp BSPC &tog 4
+                 &kp LALT &kp RET &kp LALT &kp SPC &kp LGUI     &kp RALT &kp SPC &mo 1 &kp BSPC &tog 4
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
