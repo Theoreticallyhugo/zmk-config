@@ -18,6 +18,12 @@
     // chain-length = <29>; // Uncomment if using only per-key LEDs.
 };
 
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+    /delete-property/ ignore-modifiers;
+};
+
 // TODO: https://zmk.dev/docs/keymaps/behaviors/power need EP_OFF AND EP_ON (EP_TOG) to save power
 / {
     keymap {
@@ -36,13 +42,13 @@
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Z   |  U    |  I    |  O   |   P   |   ü   |
 // |  ESC  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ö   |   ä   |
 // | SHIFT |  Y  |  X  |  C   |  V   |  B   |   MUTE |  |       |  N   |  M    |  ,    |  .   |   -   | SHIFT |
-//               |CTRL | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   | RALT |
+//               |LALT | ENTER| LALT | L2   |  LGUI  |  | RALT  | SPACE|  L1   | BSPC  | RALT |
             bindings = <
 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
 &kp TAB &kp Q &kp W &kp E &kp R &kp T                                   &kp Y &kp U &kp I &kp O &kp P &kp LBKT
-&kp ESC &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
-&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                 &kp LALT &kp RET &kp LCTRL &mo 2 &kp LGUI     &kp LALT &kp SPC &mo 1 &kp BSPC &kp RALT
+&mt LCTRL ESC &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+&sk LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &sk RSHFT
+                 &kp LCTRL &kp RET &kp LALT &mo 2 &kp LGUI     &sk RALT &kp SPC &mo 1 &kp BSPC &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -71,7 +77,7 @@
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                       &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
 &kp RBKT &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                    &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
 &kp LS(RBKT) &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4) &kp LS(N5)                    &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-&kp NUBS &kp LS(NUBS) &kp EQUAL &kp LS(EQUAL) &kp LS(LA(N7)) &kp LA(N5) &trans        &trans &kp LA(N6) &kp LA(N7) &kp LA(N8) &kp LA(N9) &kp LS(NUHS) &kp NUHS
+&kp NUBS &kp LS(NUBS) &kp EQUAL &kp LS(EQUAL) &kp LS(RA(N7)) &kp LA(N5) &trans        &trans &kp RA(N6) &kp RA(N7) &kp RA(N8) &kp RA(N9) &kp LS(NUHS) &kp NUHS
                             &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
             >;
 
