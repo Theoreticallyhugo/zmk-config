@@ -54,7 +54,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        lower_layer {
+        special_layer {
 
 // SPECIAL CHARACTERS
 // on this layer you get the function keys in the top row
@@ -84,21 +84,22 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        raise_layer {
+        navigation_layer {
 // NAVIGATION
 // this layer is for NAVIGATION
 // you could press any modifier combination and the arrow keys here for example. added hjkl for convenience
 // as the left hand can easily any kind of modifier combination, they are not needed on the right
 // most of this is unmodified
+// you can "navigate" to colemak-dh here
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |  <-  |   v   |  ^    |  ->  | bspce |  del  |
-// |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
-//               |     |      |      |      |        |  |       | RET  |       |       |      |
+// | BTCLR | BT1  | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
+// |       |      |     |      | C-DH |      |                   |      |       |       |      |       |       |
+// |       | LALT |LCTRL| LSHFT| LGUI | CAPS |                   |  <-  |   v   |  ^    |  ->  | bspce |  del  |
+// |       |      |     |      |      |      |        |  |       |      |       |       |      |       |       |
+//                |     |      |      |      |        |  |       | RET  |       |       |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans                      &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &tog 5 &trans                      &trans &trans &trans &trans &trans &trans
 &trans &kp LALT &kp LCTRL &kp LSHFT &kp LGUI &kp CAPS                      &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp BSPC &kp DEL
 &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans
               &trans &trans &trans &trans &trans        &trans &kp RET &trans &trans &trans
@@ -138,6 +139,27 @@
 &kp LCTRL &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                  &kp LALT &kp RET &kp LALT &kp SPC &kp LGUI     &kp RALT &kp SPC &mo 1 &kp BSPC &tog 4
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+        colemak_dh_base_layer {
+// reference: https://zmk.dev/docs/keymaps/conditional-layers
+// colemak-dh layout based on matrix-like: https://colemakmods.github.io/mod-dh/
+// customization: replace semicolon with ö and keep ä and ü where they are. 
+// allows for german use with little to no change.
+// ------------------------------------------------------------------------------------------------------------
+// |   ^   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                   |  J   |  L    |  U    |  Y   |   Ö   |   Ü   |
+// |  ESC  |  A  |  R  |  S   |  T   |  G   |                   |  M   |  N    |  E    |  I   |   O   |   Ä   |
+// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MUTE  |  |       |  K   |  H    |  ,    |  .   |   -   | SHIFT |
+//               |LALT | ENTER| LALT | L2   |  LGUI  |  | RALT  | SPACE|  L1   | BSPC  | RALT |
+            bindings = <
+&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
+&kp TAB &kp Q &kp W &kp F &kp P &kp B                                   &kp J &kp L &kp U &kp Z &kp SEMI &kp LBKT
+&mt LCTRL ESC &kp A &kp R &kp S &kp T &kp G                                   &kp M &kp N &kp E &kp I &kp O &kp SQT
+&sk LSHFT &kp Y &kp X &kp C &kp D &kp V &kp C_MUTE                      &trans &kp K &kp H &kp COMMA &kp DOT &kp FSLH &sk RSHFT
+                 &kp LCTRL &kp RET &kp LALT &mo 2 &kp LGUI     &sk RALT &kp SPC &mo 1 &kp BSPC &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
