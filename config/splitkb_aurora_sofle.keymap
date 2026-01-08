@@ -186,14 +186,15 @@
 / {
     behaviors {
         // balanced profile is cool, but i never need to press the modifiers on their own, so they should only fire with other keys!
+        // basically i need the idea of balanced (only fire is key is tapped and released) with the tap-unless-interrupted proile
         // https://github.com/infused-kim/zmk-config/blob/chocofi/main/config/includes/behaviours_homerow_mods.dtsi
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
-            /* quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap */
+            quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = < KEYS_L KEYS_T >; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
@@ -201,10 +202,10 @@
         hmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
-            /* quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap */
+            quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = < KEYS_R KEYS_T >; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
