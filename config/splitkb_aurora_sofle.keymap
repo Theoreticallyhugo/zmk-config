@@ -132,7 +132,7 @@
 //                |     |      |      |      |        |  |       | RET  |       |       |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &tog COLEMAK &trans                      &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &tog_off COLEMAK &tog_on COLEMAK &trans                      &trans &trans &trans &trans &trans &trans
 &trans &kp LALT &kp LCTRL &kp LSHFT &kp LGUI &kp CAPS                      &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp BSPC &kp DEL
 &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans
               &trans &trans &trans &trans &trans        &trans &kp RET &trans &trans &trans
@@ -214,6 +214,20 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = < KEYS_R KEYS_T >; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
+        };
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+            locking;
+        };
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+            locking;
         };
     };
 };
