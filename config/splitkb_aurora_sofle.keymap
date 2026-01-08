@@ -28,8 +28,11 @@
 };
 
 #define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
+#define COLEMAK 1
+#define SPECIAL 2
+#define NAV     3
+#define ADJUST  4
+#define GAY     5
 
 // TODO: https://zmk.dev/docs/keymaps/behaviors/power need EP_OFF AND EP_ON (EP_TOG) to save power
 / {
@@ -55,7 +58,30 @@
 &kp TAB &kp Q &kp W &kp E &kp R &kp T                                   &kp Y &kp U &kp I &kp O &kp P &kp LBKT
 &mt LCTRL ESC &hml RALT A &hml LCTRL S &hml LSHFT D &hml LGUI F &kp G                                   &kp H &hmr LGUI J &hmr LSHFT K &hmr LCTRL L &hmr RALT SEMI &kp SQT
 &sk LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &sk RSHFT
-                 &kp LCTRL &kp RET &kp LALT &mo 2 &kp LGUI     &sk RALT &kp SPC &mo 1 &kp BSPC &kp RALT
+                 &kp LCTRL &kp RET &kp LALT &mo NAV &kp LGUI     &sk RALT &kp SPC &mo SPECIAL &kp BSPC &kp RALT
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        colemak_dh_base_layer {
+// reference: https://zmk.dev/docs/keymaps/conditional-layers
+// colemak-dh layout based on matrix-like: https://colemakmods.github.io/mod-dh/
+// customization: replace semicolon with ö and keep ä and ü where they are. 
+// allows for german use with little to no change.
+// ------------------------------------------------------------------------------------------------------------
+// |   ^   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
+// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                   |  J   |  L    |  U    |  Y   |   Ö   |   Ü   |
+// |  ESC  |  A  |  R  |  S   |  T   |  G   |                   |  M   |  N    |  E    |  I   |   O   |   Ä   |
+// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MUTE  |  |       |  K   |  H    |  ,    |  .   |   -   | SHIFT |
+//               |LALT | ENTER| LALT | L2   |  LGUI  |  | RALT  | SPACE|  L1   | BSPC  | RALT |
+            bindings = <
+&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
+&kp TAB &kp Q &kp W &kp F &kp P &kp B                                   &kp J &kp L &kp U &kp Z &kp SEMI &kp LBKT
+&mt LCTRL ESC &kp A &kp R &kp S &kp T &kp G                                   &kp M &kp N &kp E &kp I &kp O &kp SQT
+&sk LSHFT &kp Y &kp X &kp C &kp D &kp V &kp C_MUTE                      &trans &kp K &kp H &kp COMMA &kp DOT &kp FSLH &sk RSHFT
+                 /* &kp LCTRL &kp RET &kp LALT &mo 2 &kp LGUI     &sk RALT &kp SPC &mo 1 &kp BSPC &kp RALT */
+                 &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans 
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -106,7 +132,7 @@
 //                |     |      |      |      |        |  |       | RET  |       |       |      |
             bindings = <
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &tog 5 &trans                      &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &tog COLEMAK &trans                      &trans &trans &trans &trans &trans &trans
 &trans &kp LALT &kp LCTRL &kp LSHFT &kp LGUI &kp CAPS                      &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp BSPC &kp DEL
 &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans
               &trans &trans &trans &trans &trans        &trans &kp RET &trans &trans &trans
@@ -123,7 +149,7 @@
 // |       |      |      |      |      |      |        |  |       |      |       |       |      |       |       |
 //                |      |      |      |      |        |  |       |      |       |       |      |
             bindings = <
-&tog 4 &trans &trans &trans &trans &kp C_SLEEP                                                                 &trans &trans &trans &trans &trans &trans
+&tog GAY &trans &trans &trans &trans &kp C_SLEEP                                                                 &trans &trans &trans &trans &trans &trans
 &bl BL_CYCLE &bl BL_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF	&rgb_ug RGB_BRD &rgb_ug RGB_BRI                        &trans &trans &trans &trans &trans &trans
 &kp C_PREV &kp C_PLAY_PAUSE &kp C_NEXT &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP                                            &trans &trans &trans &trans &trans &trans
 &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_HUD &rgb_ug RGB_HUI &ext_power EP_ON &ext_power EP_OFF &trans      &trans &trans &trans &trans &trans &trans &trans
@@ -145,28 +171,7 @@
 &kp TAB &kp Q &kp W &kp E &kp R &kp T                                   &kp Y &kp U &kp I &kp O &kp P &kp LBRC
 &kp LCTRL &kp A &kp S &kp D &kp F &kp G                                   &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE                      &trans &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                 &kp LALT &kp RET &kp LALT &kp SPC &kp LGUI     &kp RALT &kp SPC &mo 1 &kp BSPC &tog 4
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-        colemak_dh_base_layer {
-// reference: https://zmk.dev/docs/keymaps/conditional-layers
-// colemak-dh layout based on matrix-like: https://colemakmods.github.io/mod-dh/
-// customization: replace semicolon with ö and keep ä and ü where they are. 
-// allows for german use with little to no change.
-// ------------------------------------------------------------------------------------------------------------
-// |   ^   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
-// |  TAB  |  Q  |  W  |  F   |  P   |  B   |                   |  J   |  L    |  U    |  Y   |   Ö   |   Ü   |
-// |  ESC  |  A  |  R  |  S   |  T   |  G   |                   |  M   |  N    |  E    |  I   |   O   |   Ä   |
-// | SHIFT |  Z  |  X  |  C   |  D   |  V   |  MUTE  |  |       |  K   |  H    |  ,    |  .   |   -   | SHIFT |
-//               |LALT | ENTER| LALT | L2   |  LGUI  |  | RALT  | SPACE|  L1   | BSPC  | RALT |
-            bindings = <
-&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                            &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
-&kp TAB &kp Q &kp W &kp F &kp P &kp B                                   &kp J &kp L &kp U &kp Z &kp SEMI &kp LBKT
-&mt LCTRL ESC &kp A &kp R &kp S &kp T &kp G                                   &kp M &kp N &kp E &kp I &kp O &kp SQT
-&sk LSHFT &kp Y &kp X &kp C &kp D &kp V &kp C_MUTE                      &trans &kp K &kp H &kp COMMA &kp DOT &kp FSLH &sk RSHFT
-                 &kp LCTRL &kp RET &kp LALT &mo 2 &kp LGUI     &sk RALT &kp SPC &mo 1 &kp BSPC &kp RALT
+                 &kp LALT &kp RET &kp LALT &kp SPC &kp LGUI     &kp RALT &kp SPC &mo 1 &kp BSPC &tog GAY
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -178,8 +183,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <SPECIAL NAV>;
+            then-layer = <ADJUST>;
         };
     };
 };
