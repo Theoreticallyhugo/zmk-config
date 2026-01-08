@@ -86,4 +86,6 @@
 #define KEYS_T LH4 LH3 LH2 LH1 LH0 RH0 RH1 RH2 RH3 RH4
 
 #define KKL 0 1 2 3 4 5 
-#define KKR 6 7 8 8 9 10
+#define KKL2 12 13 14 15 16 17 
+#define KKR 6 7 8 9 10 11
+#define KKR2 18 19 20 21 22 23
