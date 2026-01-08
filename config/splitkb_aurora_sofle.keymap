@@ -11,7 +11,7 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#include"includes/keypos_60key.h"
+#include "includes/keypos_60key.h"
 
 // Uncomment this block if using RGB
 &led_strip {
