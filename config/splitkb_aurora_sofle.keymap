@@ -198,10 +198,10 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
+            tapping-term-ms = <280>; // this value defines how long a key must be pressed to trigger the "hold" behavior
+            quick-tap-ms = <220>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < KEYS_L KEYS_T >; // List of keys on the right side of the keyboard
+            hold-trigger-key-positions = < KEYS_R KEYS_T >; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
         hmr: home_row_mod_right {
@@ -209,10 +209,10 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
+            tapping-term-ms = <280>; // this value defines how long a key must be pressed to trigger the "hold" behavior
+            quick-tap-ms = <220>; // if you press this key again within quick-tap-ms, it's a guaranteed tap
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < KEYS_R KEYS_T >; // List of keys on the left side of the keyboard
+            hold-trigger-key-positions = < KEYS_L KEYS_T >; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
         tog_on: toggle_layer_on_only {
