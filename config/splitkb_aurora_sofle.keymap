@@ -15,11 +15,11 @@
 // FIXME: defines are throwing weird stuff and we're not getting an issue with wrong keys...
 
 // Uncomment this block if using RGB
-/* &led_strip { */
+&led_strip {
     // chain-length = <6>; // Uncomment if only using underglow
-    /* chain-length = <35>; // Uncomment if using both per-key and underglow LEDs */
+    chain-length = <35>; // Uncomment if using both per-key and underglow LEDs
     // chain-length = <29>; // Uncomment if using only per-key LEDs.
-/* }; */
+};
 
 &sk {
     release-after-ms = <2000>;
